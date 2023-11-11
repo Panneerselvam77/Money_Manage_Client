@@ -5,3 +5,22 @@
 /* .primary {
   padding-top: 10px;
 } */
+.table-analytics {
+  margin-top: 10px;
+}
+.viw-switch {
+  border: 1px solid black;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+.anticon svg {
+  font-size: 20px;
+}
+.active-icon {
+  color: #2e78ea;
+  cursor: pointer;
+}
+.inactive-icon {
+  color: gray;
+}

@@ -17,7 +17,7 @@ export default function Login() {
         "http://localhost:8060/user/login",
         values
       );
-      console.log(responce.data.User);
+      // console.log(responce.data.User);
       localStorage.setItem(
         "Money-Manager_user",
         JSON.stringify({ ...responce.data.User, password: "" })

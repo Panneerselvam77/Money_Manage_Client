@@ -11,14 +11,16 @@ export default function DefaultLayout(props) {
     {
       key: "1",
       label: (
-        <li
-          onClick={() => {
-            localStorage.removeItem("Money-Manager_user");
-            navigate("/login");
-          }}
-        >
-          Logout
-        </li>
+        <ul>
+          <li
+            onClick={() => {
+              localStorage.removeItem("Money-Manager_user");
+              navigate("/login");
+            }}
+          >
+            Logout
+          </li>
+        </ul>
       ),
     },
   ];

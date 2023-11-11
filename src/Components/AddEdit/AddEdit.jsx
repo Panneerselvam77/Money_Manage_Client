@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 export default function AddEdit({
   showeditaddTransactionModel,
   setShoweditaddTransactionMondel,
+  getTransaction,
 }) {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -18,6 +19,7 @@ export default function AddEdit({
         "http://localhost:8060/transactions/add-transaction",
         { ...values, userid: user._id }
       );
+      getTransaction();
       message.success("Transaction Added Successfull");
       setShoweditaddTransactionMondel(false);
       setLoading(false);
