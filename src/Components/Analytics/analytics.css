@@ -1,0 +1,26 @@
+.transaction-count {
+  box-shadow: 0 0 2px gray;
+  padding: 15px;
+  border-radius: 10px;
+}
+.analytics h4 {
+  font-size: 25px;
+}
+.analytics h5 {
+  font-size: 18px;
+}
+.progress-bars {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding-top: 10px;
+}
+.income-catagory-analytics {
+  margin-top: 25px;
+}
+.catagory-card {
+  padding: 10px;
+  box-shadow: 0 0 2px gray;
+  margin-top: 10px;
+  border-radius: 5px;
+}

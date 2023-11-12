@@ -62,6 +62,8 @@ export default function AddEdit({
             <Select.Option value="enatertainment">Entertainment</Select.Option>
             <Select.Option value="education">Education</Select.Option>
             <Select.Option value="medical">Medical</Select.Option>
+            <Select.Option value="investment">Investment</Select.Option>
+            <Select.Option value="travel">Travel</Select.Option>
             <Select.Option value="tax">Tax</Select.Option>
           </Select>
         </Form.Item>

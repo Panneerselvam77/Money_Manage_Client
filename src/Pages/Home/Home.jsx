@@ -13,17 +13,17 @@ import { UnorderedListOutlined, AreaChartOutlined } from "@ant-design/icons";
 const { RangePicker } = DatePicker;
 
 export default function Home() {
-  // State For Loading
+  /*  State For Loading */
   const [loading, setLoading] = useState(false);
   const [showeditaddTransactionModel, setShoweditaddTransactionMondel] =
     useState(false);
   const [transactionData, setTransactionData] = useState([]);
   const [frequency, setFrequency] = useState("7");
-  const [selectRange, setSelectRange] = useState();
+  const [selectRange, setSelectRange] = useState([]);
   const [type, setType] = useState("all");
   const [viewType, setViewType] = useState("table");
 
-  // Function For Fetching API
+  /* Function For Fetching API */
   const getTransaction = async () => {
     try {
       const user = JSON.parse(localStorage.getItem("Money-Manager_user"));
@@ -49,8 +49,8 @@ export default function Home() {
   // UseEffect
   useEffect(() => {
     getTransaction();
-    // eslint-disable-next-line
   }, [frequency, selectRange, type]);
+
   /* Columns For Table Content input */
   const columns = [
     {
