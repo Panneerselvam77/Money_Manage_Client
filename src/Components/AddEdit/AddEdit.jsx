@@ -8,6 +8,8 @@ export default function AddEdit({
   showeditaddTransactionModel,
   setShoweditaddTransactionMondel,
   getTransaction,
+  setSelectedItemForEdit,
+  selectedItemForEdit,
 }) {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -22,6 +24,7 @@ export default function AddEdit({
       getTransaction();
       message.success("Transaction Added Successfull");
       setShoweditaddTransactionMondel(false);
+      setSelectedItemForEdit(null);
       setLoading(false);
       console.log(responce.data.message);
 
@@ -34,14 +37,18 @@ export default function AddEdit({
   };
   return (
     <Modal
-      title="Add Transaction"
+      title={selectedItemForEdit ? "Edit Transaction" : "Add Transaction"}
       open={showeditaddTransactionModel}
       onCancel={() => setShoweditaddTransactionMondel(false)}
       footer={false}
     >
       {loading && <Spinner />}
       {/* Using Form For Getiing Data  */}
-      <Form layout="vertical" onFinish={onFinish}>
+      <Form
+        layout="vertical"
+        onFinish={onFinish}
+        initialValues={selectedItemForEdit}
+      >
         {/* Amount */}
         <Form.Item label="Amount" name="amount">
           <Input type="text" />
@@ -57,9 +64,9 @@ export default function AddEdit({
         <Form.Item label="Category" name="category">
           <Select>
             <Select.Option value="salary">Salary</Select.Option>
-            <Select.Option value="freelace">Freelance</Select.Option>
+            <Select.Option value="freelance">Freelance</Select.Option>
             <Select.Option value="food">Food</Select.Option>
-            <Select.Option value="enatertainment">Entertainment</Select.Option>
+            <Select.Option value="entertainement">Entertainment</Select.Option>
             <Select.Option value="education">Education</Select.Option>
             <Select.Option value="medical">Medical</Select.Option>
             <Select.Option value="investment">Investment</Select.Option>

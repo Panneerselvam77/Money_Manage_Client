@@ -7,7 +7,12 @@ import "./transaction.css";
 import axios from "axios";
 import moment from "moment";
 import { Select, Table, message, DatePicker } from "antd";
-import { UnorderedListOutlined, AreaChartOutlined } from "@ant-design/icons";
+import {
+  UnorderedListOutlined,
+  AreaChartOutlined,
+  EditOutlined,
+  DeleteOutlined,
+} from "@ant-design/icons";
 
 // DatePicket
 const { RangePicker } = DatePicker;
@@ -22,7 +27,7 @@ export default function Home() {
   const [selectRange, setSelectRange] = useState([]);
   const [type, setType] = useState("all");
   const [viewType, setViewType] = useState("table");
-
+  const [selectedItemForEdit, setSelectedItemForEdit] = useState(null);
   /* Function For Fetching API */
   const getTransaction = async () => {
     try {
@@ -85,9 +90,21 @@ export default function Home() {
       key: "_id",
     },
     {
-      title: "Action",
-      dataIndex: "",
-      key: "_id",
+      title: "Actions",
+      dataIndex: "actions",
+      render: (text, record) => {
+        return (
+          <div>
+            <EditOutlined
+              onClick={() => {
+                setSelectedItemForEdit(record);
+                setShoweditaddTransactionMondel(true);
+              }}
+            />
+            <DeleteOutlined className="mx-4" />
+          </div>
+        );
+      },
     },
   ];
 
@@ -167,6 +184,8 @@ export default function Home() {
           setShoweditaddTransactionMondel={setShoweditaddTransactionMondel}
           showeditaddTransactionModel={showeditaddTransactionModel}
           getTransaction={getTransaction}
+          setSelectedItemForEdit={setSelectedItemForEdit}
+          selectedItemForEdit={selectedItemForEdit}
         />
       )}
     </DefaultLayout>
