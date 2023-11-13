@@ -8,8 +8,6 @@
 .header {
   background-color: #2e78ea;
   padding: 20px;
-  /* border-bottom-left-radius: 10px; */
-  /* border-bottom-right-radius: 10px; */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -28,9 +26,6 @@
 .contents {
   height: 85vh;
   box-shadow: 0 0 2px gray;
-  /* margin-top: 20px; */
-  /* border-top-left-radius: 10px; */
-  /* border-top-right-radius: 10px; */
   padding: 15px;
   overflow-y: scroll;
   border-bottom: 1px solid gray;

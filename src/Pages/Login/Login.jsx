@@ -51,7 +51,7 @@ export default function Login() {
       <div className="row justify-content-center align-items-center">
         <div className="col-md-5">
           <Form layout="vertical" onFinish={onFinish}>
-            <h1 style={{ marginBottom: 20 }}>Money-Manger, Login</h1>
+            <h1 style={{ marginBottom: 20, textAlign: "left" }}>Login</h1>
 
             <Form.Item label="Email" name="email">
               <Input placeholder="Enter email ..." />
@@ -64,10 +64,15 @@ export default function Login() {
                 {" "}
                 Don't Have Account ?, Click Here To Register
               </Link>
+
               <button className="primary" type="submit">
                 Login
               </button>
             </div>
+            {/* Forgot Password */}
+            {/* <div className="d-flex justify-content-left">
+              <Link to="/register"> Forgot Password</Link>
+            </div> */}
           </Form>
         </div>
         <div className="col-md-5">

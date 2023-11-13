@@ -104,11 +104,12 @@ export default function Analytics({ transactions }) {
           </div>
         </div>
       </div>
+      <hr />
       <div className="row">
         <div className="col-md-6">
           <div className="income-catagory-analytics">
             {/* For Income Catagory */}
-            <h3>Income - Catagory wise</h3>
+            <h4>Income - Catagory wise</h4>
             {catagories.map((category) => {
               const amount = transactions
                 .filter((t) => t.type === "income" && t.category === category)
@@ -132,7 +133,7 @@ export default function Analytics({ transactions }) {
         <div className="col-md-6">
           <div className="income-catagory-analytics">
             {/* For Expence catagory */}
-            <h3>Expence - Catagory wise</h3>
+            <h4>Expence - Catagory wise</h4>
             {catagories.map((category) => {
               const amount = transactions
                 .filter((t) => t.type === "expence" && t.category === category)

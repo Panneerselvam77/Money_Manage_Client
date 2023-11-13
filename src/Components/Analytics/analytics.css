@@ -4,10 +4,13 @@
   border-radius: 10px;
 }
 .analytics h4 {
-  font-size: 25px;
+  font-size: 22px;
+  color: rgb(109, 99, 99);
+  font-weight: 600;
 }
 .analytics h5 {
-  font-size: 18px;
+  font-size: 16px;
+  color: gray;
 }
 .progress-bars {
   display: flex;
@@ -23,4 +26,7 @@
   box-shadow: 0 0 2px gray;
   margin-top: 10px;
   border-radius: 5px;
+}
+.ant-picker-range {
+  border: 1px solid black !important;
 }

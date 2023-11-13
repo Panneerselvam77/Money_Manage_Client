@@ -42,7 +42,7 @@ export default function Register() {
         </div>
         <div className="col-md-5">
           <Form layout="vertical" onFinish={onFinish}>
-            <h1 style={{ marginBottom: 20 }}>Money-Manger, Register !</h1>
+            <h1 style={{ marginBottom: 20, textAlign: "left" }}>Register !!</h1>
             <Form.Item label="Name" name="name">
               <Input placeholder="Enter name ..." />
             </Form.Item>
