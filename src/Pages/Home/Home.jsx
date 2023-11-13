@@ -84,33 +84,33 @@ export default function Home() {
     {
       title: "Date",
       dataIndex: "date",
-      key: "_id",
+      key: "date",
       render: (date) => <span>{moment(date).utc().format("DD-MM-YYYY")}</span>,
     },
     {
       title: "Reference",
       dataIndex: "reference",
-      key: "_id",
+      key: "reference",
     },
     {
       title: "Description",
       dataIndex: "description",
-      key: "_id",
+      key: "description",
     },
     {
       title: "Amount",
       dataIndex: "amount",
-      key: "_id",
+      key: "amount",
     },
     {
       title: "Category",
       dataIndex: "category",
-      key: "_id",
+      key: "category",
     },
     {
       title: "Type",
       dataIndex: "type",
-      key: "_id",
+      key: "type",
     },
     {
       title: "Actions",
