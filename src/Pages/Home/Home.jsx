@@ -28,6 +28,7 @@ export default function Home() {
   const [type, setType] = useState("all");
   const [viewType, setViewType] = useState("table");
   const [selectedItemForEdit, setSelectedItemForEdit] = useState(null);
+
   /* Function For Fetching API */
   const getTransaction = async () => {
     try {
@@ -42,7 +43,6 @@ export default function Home() {
           type,
         }
       );
-      console.log(responce.data.Transaction);
       setTransactionData(responce.data.Transaction);
       setLoading(false);
     } catch (error) {
@@ -51,9 +51,32 @@ export default function Home() {
       console.log(error);
     }
   };
+
+  /* Function For Deleting Transaction  */
+  const deletedTransaction = async (record) => {
+    try {
+      setLoading(true);
+      const responce = await axios.post(
+        "http://localhost:8060/transactions/delete-transaction",
+        {
+          transactionId: record._id,
+        }
+      );
+      console.log(responce);
+      message.success("Transaction Deleted Sucessfully");
+      getTransaction();
+      setLoading(false);
+    } catch (error) {
+      setLoading(false);
+      message.error("Something went Error");
+      console.log(error);
+    }
+  };
+
   // UseEffect
   useEffect(() => {
     getTransaction();
+    // eslint-disable-next-line
   }, [frequency, selectRange, type]);
 
   /* Columns For Table Content input */
@@ -95,13 +118,20 @@ export default function Home() {
       render: (text, record) => {
         return (
           <div>
+            {/* Edit Button */}
             <EditOutlined
               onClick={() => {
                 setSelectedItemForEdit(record);
                 setShoweditaddTransactionMondel(true);
               }}
             />
-            <DeleteOutlined className="mx-4" />
+            {/* Delete Button */}
+            <DeleteOutlined
+              className="mx-4"
+              onClick={() => {
+                deletedTransaction(record);
+              }}
+            />
           </div>
         );
       },

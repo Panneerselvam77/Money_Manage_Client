@@ -17,17 +17,32 @@ export default function AddEdit({
     try {
       const user = JSON.parse(localStorage.getItem("Money-Manager_user"));
       setLoading(true);
-      const responce = await axios.post(
-        "http://localhost:8060/transactions/add-transaction",
-        { ...values, userid: user._id }
-      );
+      if (selectedItemForEdit) {
+        const Editresponce = await axios.post(
+          "http://localhost:8060/transactions/edit-transaction",
+          {
+            payload: {
+              ...values,
+              userid: user._id,
+            },
+            transactionId: selectedItemForEdit._id,
+          }
+        );
+
+        message.success("Transaction Updated Successfull");
+        console.log(Editresponce);
+      } else {
+        const Addresponce = await axios.post(
+          "http://localhost:8060/transactions/add-transaction",
+          { ...values, userid: user._id }
+        );
+        message.success("Transaction Added Successfull");
+        console.log(Addresponce);
+      }
       getTransaction();
-      message.success("Transaction Added Successfull");
       setShoweditaddTransactionMondel(false);
       setSelectedItemForEdit(null);
       setLoading(false);
-      console.log(responce.data.message);
-
       navigate("/login");
     } catch (error) {
       setLoading(false);
