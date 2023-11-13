@@ -48,6 +48,7 @@ export default function DefaultLayout(props) {
           </Dropdown>
         </div>
       </div>
+      {/* For Body Content */}
       <div className="contents">{props.children}</div>
     </div>
   );

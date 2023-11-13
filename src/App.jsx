@@ -1,10 +1,8 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 import "./App.css";
 import Home from "./Pages/Home/Home.jsx";
-import Test from "./Pages/Test.jsx";
 import Login from "./Pages/Login/Login";
 import Register from "./Pages/Register/Register";
-// import DefaultLayout from "./Components/DefaultLayout";
 
 function App() {
   return (
@@ -19,7 +17,6 @@ function App() {
             </ProdectedRoute>
           }
         />
-        <Route path="/test" element={<Test />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
       </Routes>

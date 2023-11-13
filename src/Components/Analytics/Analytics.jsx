@@ -3,16 +3,14 @@ import "./analytics.css";
 import { Progress } from "antd";
 
 export default function Analytics({ transactions }) {
-  /* 
-    Below all  For Transaction Count
- */
+  /* Below all  For Transaction Count */
   // Total Transactions
   const totalTransactions = transactions.length;
-  //   Total Income
+  // Total Income
   const totalIncomeTransaction = transactions.filter(
     (transaction) => transaction.type === "income"
   );
-  //   Total Expence
+  // Total Expence
   const totalExpenceTransaction = transactions.filter(
     (transaction) => transaction.type === "expence"
   );
@@ -61,6 +59,7 @@ export default function Analytics({ transactions }) {
       <div className="row">
         <div className="col-md-4">
           <div className="transaction-count">
+            {/* For No of  Total transaction */}
             <h4>Total Transactions: {totalTransactions}</h4>
             <hr />
             <div style={{ textAlign: "left" }}>
@@ -83,6 +82,7 @@ export default function Analytics({ transactions }) {
         </div>
         <div className="col-md-4">
           <div className="transaction-count ">
+            {/* For No of  Total Turnover  */}
             <h4>Total Turnover: {totalTurnOver}</h4>
             <hr />
             <div style={{ textAlign: "left" }}>
@@ -107,6 +107,7 @@ export default function Analytics({ transactions }) {
       <div className="row">
         <div className="col-md-6">
           <div className="income-catagory-analytics">
+            {/* For Income Catagory */}
             <h3>Income - Catagory wise</h3>
             {catagories.map((category) => {
               const amount = transactions
@@ -130,6 +131,7 @@ export default function Analytics({ transactions }) {
         </div>
         <div className="col-md-6">
           <div className="income-catagory-analytics">
+            {/* For Expence catagory */}
             <h3>Expence - Catagory wise</h3>
             {catagories.map((category) => {
               const amount = transactions

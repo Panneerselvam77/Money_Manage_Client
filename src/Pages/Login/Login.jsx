@@ -1,15 +1,21 @@
 import React, { useEffect, useState } from "react";
-import { Form, Input, message } from "antd";
-import { Link, useNavigate } from "react-router-dom";
-import moneyAnimy from "../../Resources/Animation - 1699372663650.json";
-import Lottie from "lottie-react";
 import "./login.css";
 import axios from "axios";
+import Lottie from "lottie-react";
+import { Form, Input, message } from "antd";
+import { Link, useNavigate } from "react-router-dom";
 import Spinner from "../../Components/Spinner/Spinner";
+import moneyAnimy from "../../Resources/Animation - 1699372663650.json";
 
 export default function Login() {
+  /* Use State */
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+
+  /* 
+  Login -> Page
+  Function For Event and API data fetching
+  */
   const onFinish = async (values) => {
     try {
       setLoading(true);
@@ -17,7 +23,6 @@ export default function Login() {
         "http://localhost:8060/user/login",
         values
       );
-      // console.log(responce.data.User);
       localStorage.setItem(
         "Money-Manager_user",
         JSON.stringify({ ...responce.data.User, password: "" })
@@ -32,6 +37,7 @@ export default function Login() {
     }
   };
 
+  /* UseEffect */
   useEffect(() => {
     if (localStorage.getItem("Money-Manager_user")) {
       navigate("/");
