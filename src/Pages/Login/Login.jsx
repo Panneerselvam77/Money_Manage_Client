@@ -6,7 +6,7 @@ import { Form, Input, message } from "antd";
 import { Link, useNavigate } from "react-router-dom";
 import Spinner from "../../Components/Spinner/Spinner";
 import moneyAnimy from "../../Resources/Animation - 1699372663650.json";
-
+import { URL } from "../../Global-url";
 export default function Login() {
   /* Use State */
   const [loading, setLoading] = useState(false);
@@ -19,10 +19,7 @@ export default function Login() {
   const onFinish = async (values) => {
     try {
       setLoading(true);
-      const responce = await axios.post(
-        "http://localhost:8060/user/login",
-        values
-      );
+      const responce = await axios.post(`${URL}/user/login`, values);
       localStorage.setItem(
         "Money-Manager_user",
         JSON.stringify({ ...responce.data.User, password: "" })

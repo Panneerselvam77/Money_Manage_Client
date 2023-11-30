@@ -6,6 +6,7 @@ import Lottie from "lottie-react";
 import "./register.css";
 import axios from "axios";
 import Spinner from "../../Components/Spinner/Spinner";
+import { URL } from "../../Global-url";
 
 export default function Register() {
   const [loading, setLoading] = useState(false);
@@ -13,10 +14,7 @@ export default function Register() {
   const onFinish = async (values) => {
     try {
       setLoading(true);
-      const responce = await axios.post(
-        "http://localhost:8060/user/register",
-        values
-      );
+      const responce = await axios.post(`${URL}/user/register`, values);
       setLoading(false);
       console.log(responce.data.message);
       message.success("Registeration Successfull");

@@ -13,6 +13,7 @@ import {
   EditOutlined,
   DeleteOutlined,
 } from "@ant-design/icons";
+import { URL } from "../../Global-url";
 
 // DatePicket
 const { RangePicker } = DatePicker;
@@ -35,7 +36,7 @@ export default function Home() {
       const user = JSON.parse(localStorage.getItem("Money-Manager_user"));
       setLoading(true);
       const responce = await axios.post(
-        "http://localhost:8060/transactions/get-all-transactions",
+        `${URL}/transactions/get-all-transactions`,
         {
           useid: user._id,
           frequency,

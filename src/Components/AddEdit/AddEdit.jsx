@@ -3,6 +3,7 @@ import Spinner from "../../Components/Spinner/Spinner";
 import axios from "axios";
 import { Form, Input, Modal, Select, message } from "antd";
 import { useNavigate } from "react-router-dom";
+import { URL } from "../../Global-url";
 
 export default function AddEdit({
   showeditaddTransactionModel,
@@ -22,7 +23,7 @@ export default function AddEdit({
       setLoading(true);
       if (selectedItemForEdit) {
         const Editresponce = await axios.post(
-          "http://localhost:8060/transactions/edit-transaction",
+          `${URL}/transactions/edit-transaction`,
           {
             payload: {
               ...values,
@@ -36,7 +37,7 @@ export default function AddEdit({
         console.log(Editresponce);
       } else {
         const Addresponce = await axios.post(
-          "http://localhost:8060/transactions/add-transaction",
+          `${URL}/transactions/add-transaction`,
           { ...values, userid: user._id }
         );
         message.success("Transaction Added Successfull");
